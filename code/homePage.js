@@ -78,7 +78,8 @@ var xScale = d3.scaleLog()
 
 var attScale = d3.scaleSequential()
 	.domain([0, 20])
-	.interpolator(d3.interpolateRgb.gamma(2.2)("blue", "red"));
+	// changed the colours
+	.interpolator(d3.interpolateRgb.gamma(2.2)("#CCFFB5", "#1F6E4A"));
 
 var hostScale = d3.scaleThreshold()
 	.domain(d3.range(0, 5))
@@ -591,9 +592,8 @@ function showMap(dataSet) {
 
 	slider.oninput = function () {
 		// TODO
-		// currentYear = ;
-		// output.innerHTML = ;
-
+		currentYear = slider.value;
+		output.innerHTML = currentYear;
 		if (currentTap == "Bubble")
 			translateAll(centerBBox);
 		else {
@@ -842,4 +842,3 @@ function getCercle(coordinate, r) {
 
 	return circle;
 }
-
